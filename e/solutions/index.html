@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Solutions · Newland NPT</title><meta name="description" content="Industry solutions as composable reference architectures: products, platform, services, certifications and evidence on one page."><link rel="canonical" href="https://www.newlandnpt.com/e/solutions/"><script>
+      try {
+        const r = localStorage.getItem("npt-region");
+        if (r) document.documentElement.dataset.region = r;
+      } catch {}
+    </script><link rel="stylesheet" href="/_astro/BaseE.DnHq46cj.css"></head><body><!-- 工具条：版本切换提示 + Support / Company / 区域（A 稿布局） --><div class="topbar"><span class="verhint">设计版本 E · 持续改进线 · 切换：<a href="/">A</a> · <a href="/b/">B</a> · <a href="/c/">C</a> · <a href="/d/">D</a> · E</span><a href="/e/support/">Support</a><a href="/e/company/">Company</a><select id="region-select" aria-label="Select your region"><option value="worldwide" data-platform="TOMS">Global · English</option><option value="north-america" data-platform="PEP">North America · English</option><option value="europe" data-platform="TOMS">Europe · English</option><option value="latin-america" data-platform="TOMS">Latin America · English</option></select></div><header class="site-header"><a class="brand" href="/e/"><img src="/assets/newland-npt-logo.svg" alt="Newland NPT" height="24"></a><nav aria-label="Primary"><a href="/e/products/" class>Products</a><a href="/e/platforms/" class>Platforms &amp; Services</a><a href="/e/solutions/" class="on">Solutions</a><a href="/e/developers/" class>Developers &amp; Partners</a><a href="/e/resources/" class>Resources &amp; Media</a></nav><a class="signin" id="signin-link" href="/e/platforms/#signin">Sign in</a></header><div class="region-banner" id="region-banner" hidden><span>Select your region — the whole site renders for it:</span><button type="button" data-region="worldwide">Worldwide</button><button type="button" data-region="north-america">North America</button><button type="button" data-region="europe">Europe</button><button type="button" data-region="latin-america">Latin America</button></div><main><section class="hero"><div class="wrap"><div><p class="kicker">Solutions</p><h1>By industry, as a composed system</h1><p class="lead">Each solution is a reference architecture — devices, platform, services, certifications and evidence assembled from the same product truth, ending in a named consulting action.</p></div><div class="hero-panel"><div class="pane-list" style="grid-column:1/-1;"><b>Industry × Use case</b><ul><li>Financial institutions — Merchant acquiring &amp; estate operations</li><li>Retail — In-store checkout &amp; queue busting</li></ul></div></div></div></section><section><div class="wrap"><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr));"><a class="card" href="/e/solutions/financial-institutions/" data-regions="worldwide europe latin-america north-america"><span class="badge">Financial institutions</span><h3>Merchant retention, estate deployment and lifecycle services</h3><p class="muted">收单机构要在多市场部署与运营大规模终端机队，同时保证认证合规与商户体验一致。</p><div class="spec-rows"><div><b>Devices</b><span>N950 · S90 · X70</span></div><div><b>Platform</b><span>TOMS</span></div><div><b>Services</b><span>Deployment · Remote key injection · Training · Repair &amp; maintenance</span></div></div><span style="color:var(--blue);font-size:.85rem;font-weight:600;">组合详情 →</span></a><a class="card" href="/e/solutions/retail/" data-regions="worldwide europe latin-america north-america"><span class="badge">Retail</span><h3>Counter and queue-busting checkout across store formats</h3><p class="muted">零售商要在多门店形态（柜台/移动/自助）保持统一的收银体验与集中的设备运营。</p><div class="spec-rows"><div><b>Devices</b><span>X70 · S90 · U200</span></div><div><b>Platform</b><span>TOMS</span></div><div><b>Services</b><span>Deployment · App distribution · Monitoring</span></div></div><span style="color:var(--blue);font-size:.85rem;font-weight:600;">组合详情 →</span></a></div><p class="muted" style="margin-top:14px;">方案文案与本地证据由方案 Owner 供稿（P2 栏目）；本页结构先行，供稿后逐条替换为正式内容。</p></div></section></main><footer class="site-footer"><div class="foot-cols"><div><h4>Products</h4><a href="/e/products/">All products</a><a href="/e/products/compare/">Compare</a><a href="/e/certifications/">Certifications</a></div><div><h4>Platforms</h4><a href="/e/platforms/">TOMS</a><a href="/e/platforms/">PEP (North America)</a><a href="/e/platforms/#signin">Sign in</a></div><div><h4>Solutions</h4><a href="/e/solutions/">Financial institutions</a><a href="/e/solutions/">Retail</a></div><div><h4>Developers</h4><a href="/e/developers/">Get started</a><a href="/e/developers/">Partners</a></div><div><h4>Company</h4><a href="/e/company/">About Newland NPT</a><a href="/e/support/">Support</a><a href="/e/resources/#media">Newsroom</a></div></div><p class="prov">Internal prototype · content <code>huangts-npt/NPTWebsite@aaf6818</code>· synced 2026-08-19 14:24 UTC · mode github-api· 图文取自公开页面，正式发布须经品牌/产品/法务复核</p></footer><script>(function(){const regionMeta = [{"id":"worldwide","label":"Worldwide","short":"Global","platform":"TOMS"},{"id":"north-america","label":"North America","short":"North America","platform":"PEP"},{"id":"europe","label":"Europe","short":"Europe","platform":"TOMS"},{"id":"latin-america","label":"Latin America","short":"Latin America","platform":"TOMS"}];
+
+      const select = document.getElementById("region-select");
+      const banner = document.getElementById("region-banner");
+      const signin = document.getElementById("signin-link");
+
+      function applyRegion(id, { persist = true } = {}) {
+        const meta = regionMeta.find((r) => r.id === id);
+        if (!meta) return;
+        document.documentElement.dataset.region = id;
+        if (persist) try { localStorage.setItem("npt-region", id); } catch {}
+        select.value = id;
+        banner.hidden = true;
+        signin.textContent = `Sign in · ${meta.platform}`;
+        signin.href = `/e/regions/${id}/#signin`;
+        document.querySelectorAll("[data-region-card]").forEach((el) => {
+          el.classList.toggle("current", el.dataset.regionCard === id);
+        });
+        document.querySelectorAll("[data-region-name]").forEach((el) => { el.textContent = meta.label; });
+      }
+
+      const saved = document.documentElement.dataset.region;
+      if (saved && regionMeta.some((r) => r.id === saved)) {
+        applyRegion(saved, { persist: false });
+      } else {
+        banner.hidden = false;
+      }
+      select.addEventListener("change", () => applyRegion(select.value));
+      banner.querySelectorAll("button").forEach((b) =>
+        b.addEventListener("click", () => applyRegion(b.dataset.region)),
+      );
+    })();</script></body></html>

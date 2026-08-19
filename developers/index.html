@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Developers &amp; Partners · Newland NPT</title><meta name="description" content="From getting started to SDK, testing, certification, publishing and partnership."><link rel="canonical" href="https://www.newlandnpt.com/developers/"><script>
+      try {
+        const r = localStorage.getItem("npt-region");
+        if (r) document.documentElement.dataset.region = r;
+      } catch {}
+    </script><link rel="stylesheet" href="/_astro/Base.CIKGyXML.css"></head><body><!-- 工具条：版本切换提示 + Support / Company / 区域（A 稿布局） --><div class="topbar"><span class="verhint">设计版本 A · Enterprise Fintech · 切换：A · <a href="/b/">B</a> · <a href="/c/">C</a> · <a href="/d/">D</a> · <a href="/e/">E</a></span><a href="/support/">Support</a><a href="/company/">Company</a><select id="region-select" aria-label="Select your region"><option value="worldwide" data-platform="TOMS">Global · English</option><option value="north-america" data-platform="PEP">North America · English</option><option value="europe" data-platform="TOMS">Europe · English</option><option value="latin-america" data-platform="TOMS">Latin America · English</option></select></div><header class="site-header"><a class="brand" href="/"><img src="/assets/newland-npt-logo.svg" alt="Newland NPT" height="24"></a><nav aria-label="Primary"><a href="/products/" class>Products</a><a href="/platforms/" class>Platforms &amp; Services</a><a href="/solutions/" class>Solutions</a><a href="/developers/" class="on">Developers &amp; Partners</a><a href="/resources/" class>Resources &amp; Media</a></nav><a class="signin" id="signin-link" href="/platforms/#signin">Sign in</a></header><div class="region-banner" id="region-banner" hidden><span>Select your region — the whole site renders for it:</span><button type="button" data-region="worldwide">Worldwide</button><button type="button" data-region="north-america">North America</button><button type="button" data-region="europe">Europe</button><button type="button" data-region="latin-america">Latin America</button></div><main><section><div class="wrap"><p class="kicker">Developers & Partners</p><h1>From first SDK download to published app</h1><p class="lead">One path, no phone calls needed. 衡量标准：新开发者能独立走到"应用发布"。</p><div class="steps"><div class="step"><h3>Get started</h3><p>Choose your device, market and payment path.</p></div><div class="step"><h3>SDK & API</h3><p>NAPI / NSDK by device family（文档托管位置待定：官网 vs docs 子域，结构稿 D-1）.</p></div><div class="step"><h3>Test</h3><p>Test device access and sandbox environments.</p></div><div class="step"><h3>Certify</h3><p>App signing, key loading and certification flow.</p></div><div class="step"><h3>Publish</h3><p>Distribute through TOMS / regional app stores.</p></div></div></div></section><section class="soft"><div class="wrap split"><div><h2>Processor integrations (North America)</h2><p>Pre-certification evidence, promoted from news to a standing record:</p><ul><li><a href="https://www.newlandnpt.com/news-detail/37.html">TSYS L3 certification with PayExplorer</a></li><li><a href="https://www.newlandnpt.com/news-detail/41.html">Fiserv L3 certification milestone</a></li></ul><p class="muted">目标形态：processor × device × app version × status 常驻矩阵（由 PIF 管理，新闻只讲"发生了什么"）。</p></div><div><h2>Partners</h2><p>ISVs, resellers and banks each get a defined path: capabilities, co-selling and the partner sign-in.</p><p class="muted">伙伴内容供稿部门待定（结构稿 D-3）。</p><a class="btn ghost" href="/platforms/#signin">Partner sign-in</a></div></div></section></main><footer class="site-footer"><div class="foot-cols"><div><h4>Products</h4><a href="/products/">All products</a><a href="/products/compare/">Compare</a><a href="/certifications/">Certifications</a></div><div><h4>Platforms</h4><a href="/platforms/">TOMS</a><a href="/platforms/">PEP (North America)</a><a href="/platforms/#signin">Sign in</a></div><div><h4>Solutions</h4><a href="/solutions/">Financial institutions</a><a href="/solutions/">Retail</a></div><div><h4>Developers</h4><a href="/developers/">Get started</a><a href="/developers/">Partners</a></div><div><h4>Company</h4><a href="/company/">About Newland NPT</a><a href="/support/">Support</a><a href="/resources/#media">Newsroom</a></div></div><p class="prov">Internal prototype · content <code>huangts-npt/NPTWebsite@aaf6818</code>· synced 2026-08-19 14:24 UTC · mode github-api· 图文取自公开页面，正式发布须经品牌/产品/法务复核</p></footer><script>(function(){const regionMeta = [{"id":"worldwide","label":"Worldwide","short":"Global","platform":"TOMS"},{"id":"north-america","label":"North America","short":"North America","platform":"PEP"},{"id":"europe","label":"Europe","short":"Europe","platform":"TOMS"},{"id":"latin-america","label":"Latin America","short":"Latin America","platform":"TOMS"}];
+
+      const select = document.getElementById("region-select");
+      const banner = document.getElementById("region-banner");
+      const signin = document.getElementById("signin-link");
+
+      function applyRegion(id, { persist = true } = {}) {
+        const meta = regionMeta.find((r) => r.id === id);
+        if (!meta) return;
+        document.documentElement.dataset.region = id;
+        if (persist) try { localStorage.setItem("npt-region", id); } catch {}
+        select.value = id;
+        banner.hidden = true;
+        signin.textContent = `Sign in · ${meta.platform}`;
+        signin.href = `/regions/${id}/#signin`;
+        document.querySelectorAll("[data-region-card]").forEach((el) => {
+          el.classList.toggle("current", el.dataset.regionCard === id);
+        });
+        document.querySelectorAll("[data-region-name]").forEach((el) => { el.textContent = meta.label; });
+      }
+
+      const saved = document.documentElement.dataset.region;
+      if (saved && regionMeta.some((r) => r.id === saved)) {
+        applyRegion(saved, { persist: false });
+      } else {
+        banner.hidden = false;
+      }
+      select.addEventListener("change", () => applyRegion(select.value));
+      banner.querySelectorAll("button").forEach((b) =>
+        b.addEventListener("click", () => applyRegion(b.dataset.region)),
+      );
+    })();</script></body></html>
