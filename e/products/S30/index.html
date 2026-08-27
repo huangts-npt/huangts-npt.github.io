@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>S30 · Smart miniPOS · Newland NPT</title><meta name="description" content="Smart miniPOS for everyday merchant payments."><link rel="canonical" href="https://www.newlandnpt.com/e/products/S30/"><script>
+      try {
+        const r = localStorage.getItem("npt-region");
+        if (r) document.documentElement.dataset.region = r;
+      } catch {}
+    </script><link rel="stylesheet" href="/_astro/BaseE.DnHq46cj.css"></head><body><!-- 工具条：版本切换提示 + Support / Company / 区域（A 稿布局） --><div class="topbar"><span class="verhint">设计版本 E · 持续改进线 · 切换：<a href="/">A</a> · <a href="/b/">B</a> · <a href="/c/">C</a> · <a href="/d/">D</a> · E</span><a href="/e/support/">Support</a><a href="/e/company/">Company</a><select id="region-select" aria-label="Select your region"><option value="worldwide" data-platform="TOMS">Global · English</option><option value="north-america" data-platform="PEP">North America · English</option><option value="europe" data-platform="TOMS">Europe · English</option><option value="latin-america" data-platform="TOMS">Latin America · English</option></select></div><header class="site-header"><a class="brand" href="/e/"><img src="/assets/newland-npt-logo.svg" alt="Newland NPT" height="24"></a><nav aria-label="Primary"><a href="/e/products/" class="on">Products</a><a href="/e/platforms/" class>Platforms &amp; Services</a><a href="/e/solutions/" class>Solutions</a><a href="/e/developers/" class>Developers &amp; Partners</a><a href="/e/resources/" class>Resources &amp; Media</a></nav><a class="signin" id="signin-link" href="/e/platforms/#signin">Sign in</a></header><div class="region-banner" id="region-banner" hidden><span>Select your region — the whole site renders for it:</span><button type="button" data-region="worldwide">Worldwide</button><button type="button" data-region="north-america">North America</button><button type="button" data-region="europe">Europe</button><button type="button" data-region="latin-america">Latin America</button></div><main><section class="detail-hero soft"><div class="wrap"><div><p class="kicker">Compact · Everyday · Smart</p><h1>S30</h1><p><span class="badge">miniPOS</span> &nbsp; <span class="muted">Smart miniPOS</span></p><p class="lead">Smart miniPOS for everyday merchant payments.</p><div class="cta-row"><a class="btn primary" href="/e/products/compare/">Compare</a><a class="btn ghost" href="https://www.newlandnpt.com/product/minipos/S30.html">Official page & downloads</a></div></div><div class="pic"><img src="/assets/s30-product.png" alt="S30 product image" width="420" height="420"></div></div></section><section><div class="wrap"><h2>Specifications</h2><table class="facts"><tbody><tr><th>Product type</th><td>Smart miniPOS</td></tr><tr><th>Platform</th><td>Android platform</td></tr><tr><th>Form factor</th><td>Compact handheld</td></tr></tbody></table><p class="muted">事实来自内容仓批准快照；区域可用性与认证矩阵字段随编号体系落地扩展（{value, unit, source, markets} 结构）。</p></div></section><section class="soft"><div class="wrap"><h2>Where it works</h2><span class="chip">Small merchants</span><span class="chip">Mobile checkout</span></div></section><script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"S30","category":"Smart miniPOS","description":"Smart miniPOS for everyday merchant payments.","brand":{"@type":"Brand","name":"Newland NPT"},"url":"https://www.newlandnpt.com/products/S30/","additionalProperty":[{"@type":"PropertyValue","name":"Product type","value":"Smart miniPOS"},{"@type":"PropertyValue","name":"Platform","value":"Android platform"},{"@type":"PropertyValue","name":"Form factor","value":"Compact handheld"}]}</script></main><footer class="site-footer"><div class="foot-cols"><div><h4>Products</h4><a href="/e/products/">All products</a><a href="/e/products/compare/">Compare</a><a href="/e/certifications/">Certifications</a></div><div><h4>Platforms</h4><a href="/e/platforms/">TOMS</a><a href="/e/platforms/">PEP (North America)</a><a href="/e/platforms/#signin">Sign in</a></div><div><h4>Solutions</h4><a href="/e/solutions/">Financial institutions</a><a href="/e/solutions/">Retail</a></div><div><h4>Developers</h4><a href="/e/developers/">Get started</a><a href="/e/developers/">Partners</a></div><div><h4>Company</h4><a href="/e/company/">About Newland NPT</a><a href="/e/support/">Support</a><a href="/e/resources/#media">Newsroom</a></div></div><p class="prov">Internal prototype · content <code>Newland-Payment-Technology-US-Co-Ltd/npt-website@252b013</code>· synced 2026-08-27 07:44 UTC · mode github-api· 图文取自公开页面，正式发布须经品牌/产品/法务复核</p></footer><script>(function(){const regionMeta = [{"id":"worldwide","label":"Worldwide","short":"Global","platform":"TOMS"},{"id":"north-america","label":"North America","short":"North America","platform":"PEP"},{"id":"europe","label":"Europe","short":"Europe","platform":"TOMS"},{"id":"latin-america","label":"Latin America","short":"Latin America","platform":"TOMS"}];
+
+      const select = document.getElementById("region-select");
+      const banner = document.getElementById("region-banner");
+      const signin = document.getElementById("signin-link");
+
+      function applyRegion(id, { persist = true } = {}) {
+        const meta = regionMeta.find((r) => r.id === id);
+        if (!meta) return;
+        document.documentElement.dataset.region = id;
+        if (persist) try { localStorage.setItem("npt-region", id); } catch {}
+        select.value = id;
+        banner.hidden = true;
+        signin.textContent = `Sign in · ${meta.platform}`;
+        signin.href = `/e/regions/${id}/#signin`;
+        document.querySelectorAll("[data-region-card]").forEach((el) => {
+          el.classList.toggle("current", el.dataset.regionCard === id);
+        });
+        document.querySelectorAll("[data-region-name]").forEach((el) => { el.textContent = meta.label; });
+      }
+
+      const saved = document.documentElement.dataset.region;
+      if (saved && regionMeta.some((r) => r.id === saved)) {
+        applyRegion(saved, { persist: false });
+      } else {
+        banner.hidden = false;
+      }
+      select.addEventListener("change", () => applyRegion(select.value));
+      banner.querySelectorAll("button").forEach((b) =>
+        b.addEventListener("click", () => applyRegion(b.dataset.region)),
+      );
+    })();</script></body></html>

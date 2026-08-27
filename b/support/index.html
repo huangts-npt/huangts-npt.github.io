@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Support · Newland NPT</title><meta name="description" content="Find the right support path: knowledge, contracted support sign-in, and who to contact."><link rel="canonical" href="https://www.newlandnpt.com/b/support/"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><script>
+      try {
+        const r = localStorage.getItem("npt-region");
+        if (r) document.documentElement.dataset.region = r;
+      } catch {}
+    </script><link rel="stylesheet" href="/_astro/BaseB.CPmtc6sR.css"></head><body><!-- 工具条：版本提示 + Support / Company / 区域 --><div class="topbar"><span class="verhint">设计版本 B · Violet Gradient · 切换：<a href="/">A</a> · B · <a href="/c/">C</a> · <a href="/d/">D</a> · <a href="/e/">E</a></span><a href="/b/support/">Support</a><a href="/b/company/">Company</a><select id="region-select" aria-label="Select your region"><option value="worldwide" data-platform="TOMS">Global · English</option><option value="north-america" data-platform="PEP">North America · English</option><option value="europe" data-platform="TOMS">Europe · English</option><option value="latin-america" data-platform="TOMS">Latin America · English</option></select></div><header class="site-header"><a class="brand" href="/b/"><img src="/assets/newland-npt-logo.svg" alt="Newland NPT" height="26"></a><nav aria-label="Primary"><a href="/b/products/" class>Products</a><a href="/b/platforms/" class>Platforms &amp; Services</a><a href="/b/solutions/" class>Solutions</a><a href="/b/developers/" class>Developers &amp; Partners</a><a href="/b/resources/" class>Resources &amp; Media</a></nav><a class="cmp-link" href="/b/products/compare/">Compare</a><a class="signin" id="signin-link" href="/b/platforms/#signin">Sign in</a></header><div class="region-banner" id="region-banner" hidden><span>Select your region — the whole site renders for it:</span><button type="button" data-region="worldwide">Worldwide</button><button type="button" data-region="north-america">North America</button><button type="button" data-region="europe">Europe</button><button type="button" data-region="latin-america">Latin America</button></div><main><section><div class="wrap"><p class="kicker">Support</p><h1>First, the right door</h1><div class="triage"><div class="card"><h3>① Who are you?</h3><p class="muted">Prospective customer · contracted customer/partner · developer/ISV · merchant using our device</p></div><div class="card"><h3>② Where are you?</h3><p class="muted">North America → PEP · other regions → TOMS/regional service（区域路由见 Platforms）</p></div><div class="card"><h3>③ What do you need?</h3><p class="muted">Documents · development help · device operations · contracted support · repair & training · sales</p></div></div><p class="notice"><b>Responsibility boundary：</b>Newland NPT serves merchants through banks, acquirers, payment service providers, resellers and authorised service partners. If you are a merchant, please contact the organisation that provided your device or payment service.</p></div></section><section class="soft"><div class="wrap"><h2>What support covers</h2><p class="muted">条目沿用现网 Support 能力清单；开发类条目同时从 <a href="/b/developers/">Developers</a> 可达。</p><div><span class="chip">Technical support</span><span class="chip">Repair network &amp; training</span><span class="chip">SDK toolkit</span><span class="chip">App signing</span><span class="chip">Key loading</span><span class="chip">Bank template</span><span class="chip">Demo &amp; customisation</span><span class="chip">Knowledge base (NPI KM)</span><span class="chip">Global service network</span></div><div class="cta-row" style="margin-top:18px;"><a class="btn primary" href="/b/platforms/#signin">Contracted customer / partner sign-in</a><a class="btn ghost" href="/b/resources/">Self-service documents</a><a class="btn ghost" href="/b/certifications/">Certification lookup 认证查阅表</a></div></div></section></main><footer class="site-footer"><div class="foot-cols"><div><h4>Products</h4><a href="/b/products/">All products</a><a href="/b/products/compare/">Compare</a><a href="/b/certifications/">Certifications</a></div><div><h4>Platforms</h4><a href="/b/platforms/">TOMS</a><a href="/b/platforms/">PEP (North America)</a><a href="/b/platforms/#signin">Sign in</a></div><div><h4>Solutions</h4><a href="/b/solutions/">Financial institutions</a><a href="/b/solutions/">Retail</a></div><div><h4>Developers</h4><a href="/b/developers/">Get started</a><a href="/b/developers/">Partners</a></div><div><h4>Company</h4><a href="/b/company/">About Newland NPT</a><a href="/b/support/">Support</a><a href="/b/resources/#media">Newsroom</a></div></div><p class="prov">设计版本 B · Violet Gradient · 数据驱动模板（同一内容仓四版并存：<a href="/">A</a> · B · <a href="/c/">C</a> · <a href="/d/">D</a>；<a href="/b/mockup/">设计稿直渲存档</a>） · Internal prototype · content <code>Newland-Payment-Technology-US-Co-Ltd/npt-website@252b013</code>· synced 2026-08-27 07:44 UTC · mode github-api· 图文取自公开页面，正式发布须经品牌/产品/法务复核</p></footer><script>(function(){const regionMeta = [{"id":"worldwide","label":"Worldwide","short":"Global","platform":"TOMS"},{"id":"north-america","label":"North America","short":"North America","platform":"PEP"},{"id":"europe","label":"Europe","short":"Europe","platform":"TOMS"},{"id":"latin-america","label":"Latin America","short":"Latin America","platform":"TOMS"}];
+
+      const select = document.getElementById("region-select");
+      const banner = document.getElementById("region-banner");
+      const signin = document.getElementById("signin-link");
+
+      function applyRegion(id, { persist = true } = {}) {
+        const meta = regionMeta.find((r) => r.id === id);
+        if (!meta) return;
+        document.documentElement.dataset.region = id;
+        if (persist) try { localStorage.setItem("npt-region", id); } catch {}
+        select.value = id;
+        banner.hidden = true;
+        signin.textContent = `Sign in · ${meta.platform}`;
+        signin.href = `/b/regions/${id}/#signin`;
+        document.querySelectorAll("[data-region-card]").forEach((el) => {
+          el.classList.toggle("current", el.dataset.regionCard === id);
+        });
+        document.querySelectorAll("[data-region-name]").forEach((el) => { el.textContent = meta.label; });
+      }
+
+      const saved = document.documentElement.dataset.region;
+      if (saved && regionMeta.some((r) => r.id === saved)) {
+        applyRegion(saved, { persist: false });
+      } else {
+        banner.hidden = false;
+      }
+      select.addEventListener("change", () => applyRegion(select.value));
+      banner.querySelectorAll("button").forEach((b) =>
+        b.addEventListener("click", () => applyRegion(b.dataset.region)),
+      );
+    })();</script></body></html>
